@@ -7,19 +7,15 @@ feature "Static pages" do
     expect(page).to have_content('Welcome to TweetTweetHooray')
   end
 
-  scenario "help page should have the content 'Do you need assistance?'" do
-    visit '/static_pages/help'
-    expect(page).to have_content('Do you need assistance?')
-  end
-
-  scenario "about page should have the content 'A little history for you'" do
-    visit '/static_pages/about'
-    expect(page).to have_content('A little history for you')
-  end
-
   scenario "home page should have the right title" do
     visit '/static_pages/home'
     expect(page).to have_title("TweetTweetHooray | Home")
+  end
+
+
+  scenario "help page should have the content 'Do you need assistance?'" do
+    visit '/static_pages/help'
+    expect(page).to have_content('Do you need assistance?')
   end
 
   scenario "help page should have the right title" do
@@ -27,8 +23,22 @@ feature "Static pages" do
     expect(page).to have_title("TweetTweetHooray | Help")
   end
 
+
+  scenario "about page should have the content 'A little history for you'" do
+    visit '/static_pages/about'
+    expect(page).to have_content('A little history for you')
+  end
+
   scenario "about page should have the right title" do
     visit '/static_pages/about'
     expect(page).to have_title("TweetTweetHooray | About")
+  end
+
+
+  scenario "contact page should have be present with corrent title" do
+    visit '/static_pages/contact'
+
+    expect(page).to have_content("Contact Us")
+    expect(page).to have_title("TweetTweetHooray | Contact")
   end
 end
